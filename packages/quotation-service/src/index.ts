@@ -1,4 +1,1 @@
-export {
-    QuotationService
-}
-from './QuotationService';
+export * from './QuotationService';

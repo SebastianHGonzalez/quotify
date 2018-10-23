@@ -1,5 +1,5 @@
-import { IQuotationStrategy } from "./IQuotationStrategy";
-import { IQuotationService } from "./IQuotationService";
+import { IQuotationStrategy } from "./Strategies";
+import { IQuotationService } from "./";
 
 
 export class QuotationService implements IQuotationService {

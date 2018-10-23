@@ -1,4 +1,4 @@
-import { Quotation } from "./Quotation";
+import { Quotation } from "./";
 
 export interface IQuotationService {
     getQuotation: () => Promise<Quotation>;

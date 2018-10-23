@@ -1,8 +1,7 @@
 import { DateTime } from 'luxon';
 
-import { QuotationService } from './QuotationService';
-import { USDARGQuotationStrategy } from './USDARGQuotationStrategy';
-import { Quotation } from './Quotation';
+import { QuotationService, Quotation } from './';
+import { USDARGQuotationStrategy } from './Strategies';
 
 describe(QuotationService, () => {
     describe(USDARGQuotationStrategy, () => {

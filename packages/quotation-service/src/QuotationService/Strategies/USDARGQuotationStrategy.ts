@@ -1,7 +1,7 @@
 import { DateTime } from "luxon";
 
 import { IQuotationStrategy } from "./IQuotationStrategy";
-import { Quotation } from "./Quotation";
+import { Quotation } from "../Quotation";
 
 
 interface IResponse {
