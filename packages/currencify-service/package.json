@@ -1,0 +1,11 @@
+{
+  "name": "@sebastian-gonzalez/currencify-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Sebastian Gonzalez <sebastian.h.gonzalez@gmail.com>",
+  "license": "MIT"
+}
