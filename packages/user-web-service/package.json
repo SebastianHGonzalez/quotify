@@ -12,7 +12,7 @@
     "migrate": "npm run sequelize-cli -- db:migrate",
     "seed": "npm run sequelize-cli -- db:seed:all",
     "build": "npm run build-ts && npm run tslint && npm run copy-config",
-    "copy-config": "mkdir ./dist/config && cp -f ./src/config/config.json ./dist/config/config.json",
+    "copy-config": "mkdir ./dist/config -p && cp -f ./src/config/config.json ./dist/config/config.json",
     "build-ts": "tsc",
     "babel-node": "babel-node",
     "tslint": "tslint -c tslint.json -p tsconfig.json --fix"
