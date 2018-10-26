@@ -1,13 +1,13 @@
 export {
     QuotationService
-} from './QuotationService';
+} from "./QuotationService";
 
 export {
     Quotation
-} from './Quotation';
+} from "./Quotation";
 
 export {
     IQuotationService
-} from './IQuotationService';
+} from "./IQuotationService";
 
-export * from './Strategies';
+export * from "./Strategies";

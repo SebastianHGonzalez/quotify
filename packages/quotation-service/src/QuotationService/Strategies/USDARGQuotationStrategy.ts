@@ -17,29 +17,28 @@ export class USDARGQuotationStrategy implements IQuotationStrategy {
     constructor(private http: IHttpClient) { }
 
     public getQuotation() {
-        return this.http.get('/Principal/Dolar')
+        return this.http.get("/Principal/Dolar")
             .then(response => response.data)
             .then(quotationData =>
                 new Quotation(
-                    'USD',
-                    'ARG',
+                    "USD",
+                    "ARG",
                     this.getBuyerValue(quotationData),
                     this.getSellerValue(quotationData),
                     this.getUpdatedAtDate(quotationData),
                 )
             );
-        ;
     }
 
-    private getBuyerValue(quotationData: IResponse['data']) {
-        return Number.parseFloat(quotationData[0]);
+    private getBuyerValue(quotationData: IResponse["data"]) {
+        return (Number as any).parseFloat(quotationData[0]);
     }
 
-    private getSellerValue(quotationData: IResponse['data']) {
-        return Number.parseFloat(quotationData[1]);
+    private getSellerValue(quotationData: IResponse["data"]) {
+        return (Number as any).parseFloat(quotationData[1]);
     }
 
-    private getUpdatedAtDate(quotationData: IResponse['data']) {
+    private getUpdatedAtDate(quotationData: IResponse["data"]) {
         return DateTime.fromFormat(
             quotationData[2],
             "'Actualizada al' dd/LL/yyyy HH:mm"

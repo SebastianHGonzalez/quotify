@@ -1,22 +1,22 @@
-import { DateTime } from 'luxon';
+import { DateTime } from "luxon";
 
-import { QuotationService, Quotation } from './';
-import { USDARGQuotationStrategy } from './Strategies';
+import { QuotationService, Quotation } from "./";
+import { USDARGQuotationStrategy } from "./Strategies";
 
 describe(QuotationService, () => {
     describe(USDARGQuotationStrategy, () => {
 
-        let expectedQuotation;
-        let strategy;
-        let quotationService;
-        let httpMock;
-        let usdargQuotationServiceResponse;
+        let expectedQuotation: any;
+        let strategy: any;
+        let quotationService: any;
+        let httpMock: any;
+        let usdargQuotationServiceResponse: any;
 
         beforeEach(() => {
             usdargQuotationServiceResponse = { data: ["35.800", "37.800", "Actualizada al 23/10/2018 15:00"] };
             expectedQuotation = new Quotation(
-                'USD',
-                'ARG',
+                "USD",
+                "ARG",
                 35.8,
                 37.8,
                 DateTime.fromFormat(
@@ -28,12 +28,12 @@ describe(QuotationService, () => {
             httpMock = {
                 get: jest.fn().mockResolvedValue(usdargQuotationServiceResponse)
             };
-            
+
             strategy = new USDARGQuotationStrategy(httpMock);
             quotationService = new QuotationService(strategy);
         });
 
-        it('retrieves cotization for usd', () => {
+        it("retrieves cotization for usd", () => {
             return quotationService.getQuotation().then((actualQuotation: Quotation) => {
                 expect(actualQuotation).toEqual(expectedQuotation);
             });

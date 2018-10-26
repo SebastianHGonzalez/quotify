@@ -7,7 +7,7 @@ export class QuotationService implements IQuotationService {
     constructor(private strategy: IQuotationStrategy) { }
 
     public getQuotation() {
-        return this.strategy.getQuotation()
+        return this.strategy.getQuotation();
     }
 }
 
