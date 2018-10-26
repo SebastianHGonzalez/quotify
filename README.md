@@ -6,6 +6,12 @@
 
 ## Development
 
+Install node
+
+``` bash
+nvm install 8.11.0 && nvm use 8.11.0
+```
+
 Install Lerna
 
 ``` bash
@@ -16,6 +22,12 @@ Bootstrap dependencies
 
 ``` bash
 lerna bootstrap
+```
+
+Build Packages
+
+``` bash
+lerna run build
 ```
 
 Run Migrations
