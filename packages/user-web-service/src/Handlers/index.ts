@@ -1,1 +1,1 @@
-export { getAllUsersHandler } from './getAllUsersHandler';
+export { getAllUsersHandler } from "./getAllUsersHandler";

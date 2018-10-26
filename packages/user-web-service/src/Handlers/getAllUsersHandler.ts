@@ -7,5 +7,5 @@ export function getAllUsersHandler(userService: UserService) {
                 req.json(users)
             )
             .catch(next);
-    }
+    };
 }

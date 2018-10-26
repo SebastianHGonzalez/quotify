@@ -1,4 +1,6 @@
-import { User } from "./";
+import { models } from "./models";
+
+const User = models.User;
 
 export class UserService {
 
