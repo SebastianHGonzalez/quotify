@@ -18,6 +18,18 @@ Bootstrap dependencies
 lerna bootstrap
 ```
 
+Run Migrations
+
+``` bash
+lerna run migrate
+```
+
+Run Seeds to populate data bases
+
+``` bash
+lerna run seed
+```
+
 Start Dev Server
 
 ``` bash
