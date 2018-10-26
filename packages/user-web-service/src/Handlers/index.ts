@@ -1,0 +1,1 @@
+export { getAllUsersHandler } from './getAllUsersHandler';

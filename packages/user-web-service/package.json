@@ -1,0 +1,48 @@
+{
+  "name": "@sebastianhgonzalez/user-web-service",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "start": "npm run build && npm run serve",
+    "serve": "nodemon --exec npm run babel-node -- dist/startServer.js",
+    "test": "jest",
+    "sequelize-cli": "cd src/ && ../node_modules/sequelize-cli/lib/sequelize",
+    "migrate": "npm run sequelize-cli -- db:migrate",
+    "seed": "npm run sequelize-cli -- db:seed:all",
+    "build": "npm run build-ts && npm run tslint",
+    "build-ts": "tsc",
+    "babel-node": "babel-node"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "testRegex": "/src/.*\\.test\\.(ts|tsx)$",
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest",
+      "^.+\\.(ts|tsx)$": "typescript-babel-jest"
+    }
+  },
+  "author": "Sebastian Gonzalez <sebastian.h.gonzalez@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/axios": "^0.14.0",
+    "@types/express": "^4.16.0",
+    "@types/jest": "^23.3.7",
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-jest": "^23.6.0",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^23.6.0",
+    "nodemon": "^1.18.4"
+  },
+  "dependencies": {
+    "express": "^4.16.4",
+    "sequelize": "^4.41.0",
+    "sqlite": "^3.0.0"
+  }
+}
