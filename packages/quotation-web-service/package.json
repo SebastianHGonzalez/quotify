@@ -5,9 +5,13 @@
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "scripts": {
-    "build": "tsc",
-    "start": "nodemon src/startServer.ts --exec babel-node",
-    "test": "jest"
+    "start": "npm run build && npm run serve",
+    "serve": "nodemon --exec npm run babel-node -- dist/startServer.js",
+    "test": "jest",
+    "build": "npm run build-ts && npm run tslint",
+    "build-ts": "tsc",
+    "babel-node": "babel-node",
+    "tslint": "tslint -c tslint.json -p tsconfig.json --fix"
   },
   "jest": {
     "moduleFileExtensions": [
@@ -28,10 +32,12 @@
     "@types/express": "^4.16.0",
     "@types/jest": "^23.3.7",
     "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-jest": "^23.6.0",
     "babel-preset-env": "^1.7.0",
     "jest": "^23.6.0",
     "nodemon": "^1.18.4",
+    "tslint": "^5.11.0",
     "typescript": "^3.1.3",
     "typescript-babel-jest": "^1.0.5"
   },

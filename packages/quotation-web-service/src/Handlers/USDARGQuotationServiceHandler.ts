@@ -1,8 +1,8 @@
-import Axios from 'axios';
+import Axios from "axios";
 
-import { config } from '../config';
+import { config } from "../config";
 
-import { QuotationService, USDARGQuotationStrategy, Quotation } from '@sebastianhgonzalez/quotation-service';
+import { QuotationService, USDARGQuotationStrategy, Quotation } from "@sebastianhgonzalez/quotation-service";
 
 
 export function USDARGQuotationServiceHandler(req: any, res: any) {

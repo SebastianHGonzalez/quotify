@@ -1,11 +1,13 @@
 import {
     USDARGQuotationServiceHandler,
-notImplementedHandler,
-} from './Handlers';
+    notImplementedHandler,
+} from "./Handlers";
 
 export function applyMiddlewares(expressApp: any) {
 
-    expressApp.get('/Dolar', USDARGQuotationServiceHandler);
-    expressApp.get('/Pesos', notImplementedHandler);
-    expressApp.get('/Real', notImplementedHandler);
+    expressApp.get("/Dolar", USDARGQuotationServiceHandler);
+    expressApp.get("/Pesos", notImplementedHandler);
+    expressApp.get("/Real", notImplementedHandler);
 }
+
+export default applyMiddlewares;

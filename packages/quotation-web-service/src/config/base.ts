@@ -1,3 +1,4 @@
 export default {
-    quotationBaseUrl: 'http://www.bancoprovincia.com.ar/'
+    port: 3000,
+    quotationBaseUrl: "http://www.bancoprovincia.com.ar/"
 };

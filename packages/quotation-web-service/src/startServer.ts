@@ -1,23 +1,17 @@
-import * as express from 'express';
+import express from "express";
 
-import { applyMiddlewares } from './applyMiddlewares';
-import { config } from './config';
+import { config } from "./config";
+
+import {
+    USDARGQuotationServiceHandler,
+    notImplementedHandler,
+} from "./Handlers";
 
 
-export function startServer({
-    applyMidlewares,
-    config,
-    express,
-}: any) {
-    const app = express();
+const app = express();
 
-    applyMidlewares(app);
+app.get("/Dolar", USDARGQuotationServiceHandler);
+app.get("/Pesos", notImplementedHandler);
+app.get("/Real", notImplementedHandler);
 
-    app.listen(config.port);
-}
-
-startServer({
-    express,
-    applyMiddlewares,
-    config,
-});
+app.listen(config.port);
