@@ -11,3 +11,5 @@ export {
 } from "./IQuotationService";
 
 export * from "./Strategies";
+
+export * from "./Currency";
