@@ -3,7 +3,7 @@ import * as React from "react";
 import { Grid, GridList, withStyles } from "@material-ui/core";
 import { Currency } from "@sebastianhgonzalez/quotation-service";
 import { QuotationClient } from "src/api";
-import { IQuotations } from "src/api/QuotationClient";
+import { IQuotations } from "src/api/IQuotationsClient";
 import { QuotationTimeline } from "src/components/QuotationTimeline";
 
 interface IQuotationTimelinesProps extends React.Props<any> {
