@@ -1,8 +1,8 @@
 export type Currency = "USD" | "BRL" | "ARS";
 
-interface ICurrencies {
-    [x: string]: Currency;
-}
+type ICurrencies = {
+    [currency in Currency]: Currency;
+};
 
 export const Currencies: ICurrencies = {
     ARS: "ARS",
