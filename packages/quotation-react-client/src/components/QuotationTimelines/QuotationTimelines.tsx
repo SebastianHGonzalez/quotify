@@ -7,6 +7,8 @@ import { IQuotations } from "src/api/IQuotationsClient";
 import { QuotationTimeline } from "src/components/QuotationTimeline";
 
 interface IQuotationTimelinesProps extends React.Props<any> {
+  maxQuotations?: number;
+  autoFetchInterval?: number;
   currencies: Currency[];
 }
 
@@ -26,13 +28,38 @@ class UnStyledQuotationTimelines extends React.Component<
     this.state = {
       quotations: {}
     };
+
+    this.addQuotations = this.addQuotations.bind(this);
+    this.fetchQuotations = this.fetchQuotations.bind(this);
+    this.autoFetchQuotations = this.autoFetchQuotations.bind(this);
   }
 
   public componentDidMount() {
     this.quotationClient = new QuotationClient();
+    this.autoFetchQuotations()
+  }
+
+  public autoFetchQuotations() {
+    this.fetchQuotations()
+    if(this.props.autoFetchInterval){
+      setTimeout(this.autoFetchQuotations, this.props.autoFetchInterval);
+    }
+  }
+
+  public fetchQuotations() {
     this.quotationClient
       .getQuotations(this.props.currencies)
-      .then((quotations: IQuotations) => this.setState({ quotations }));
+      .then(this.addQuotations);
+  }
+
+  public addQuotations(newQuotations: IQuotations) {
+    const quotations = {...this.state.quotations};
+
+    Object.keys(newQuotations).forEach(currency => {
+      quotations[currency] = [newQuotations[currency], ...(this.state.quotations[currency] || [])].slice(0,this.props.maxQuotations)
+    });
+    
+    this.setState({quotations});
   }
 
   public render() {
