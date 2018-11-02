@@ -42,8 +42,9 @@
 		"typescript-babel-jest": "^1.0.5"
 	},
 	"dependencies": {
+		"@sebastianhgonzalez/quotation-service": "^1.0.0",
 		"axios": "^0.18.0",
-		"express": "^4.16.4",
-		"@sebastianhgonzalez/quotation-service": "^1.0.0"
+		"cors": "^2.8.4",
+		"express": "^4.16.4"
 	}
 }
