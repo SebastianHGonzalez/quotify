@@ -15,7 +15,7 @@ export function QuotationCard(props: IQuotationCardProps) {
         <b>Base currency: </b>{props.quotation.baseCurrency} <br/>
         <b>Buyer: </b>{props.quotation.buyer} <br/>
         <b>Seller: </b>{props.quotation.seller} <br/>
-        <b>Updated at: </b>{props.quotation.updatedAt.toLocaleString()} <br/>
+        <b>Updated at: </b>{props.quotation.updatedAt && props.quotation.updatedAt.toLocaleString()} <br/>
       </CardContent>
     </Card>
   );
