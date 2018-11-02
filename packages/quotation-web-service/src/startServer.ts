@@ -1,3 +1,4 @@
+const cors = require("cors");
 import Axios from "axios";
 import express from "express";
 
@@ -16,8 +17,9 @@ const quotationService = new QuotationService(quotationStrategy);
 
 const app = express();
 
-app.get("/Dolar", USDARGQuotationServiceHandler(quotationService));
-app.get("/Pesos", notImplementedHandler);
-app.get("/Real", notImplementedHandler);
+app.use(cors());
+app.get("/Dolar/quote", USDARGQuotationServiceHandler(quotationService));
+app.get("/Pesos/quote", notImplementedHandler);
+app.get("/Real/quote", notImplementedHandler);
 
 app.listen(config.port);
