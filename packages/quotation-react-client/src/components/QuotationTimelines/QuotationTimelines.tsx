@@ -2,11 +2,11 @@ import * as React from "react";
 
 import { Grid, GridList, withStyles } from "@material-ui/core";
 import { Currency } from "@sebastianhgonzalez/quotation-service";
-import { QuotationClient } from "src/api";
-import { IQuotations } from "src/api/IQuotationsClient";
+import { IQuotations, IQuotationsClient } from "src/api";
 import { QuotationTimeline } from "src/components/QuotationTimeline";
 
 interface IQuotationTimelinesProps extends React.Props<any> {
+  quotationClient: IQuotationsClient;
   maxQuotations?: number;
   autoFetchInterval?: number;
   currencies: Currency[];
@@ -20,8 +20,6 @@ class UnStyledQuotationTimelines extends React.Component<
   IQuotationTimelinesProps,
   IQuotationTimelinesState
 > {
-  public quotationClient: QuotationClient;
-
   constructor(props: IQuotationTimelinesProps) {
     super(props);
 
@@ -35,31 +33,33 @@ class UnStyledQuotationTimelines extends React.Component<
   }
 
   public componentDidMount() {
-    this.quotationClient = new QuotationClient();
-    this.autoFetchQuotations()
+    this.autoFetchQuotations();
   }
 
   public autoFetchQuotations() {
-    this.fetchQuotations()
-    if(this.props.autoFetchInterval){
+    this.fetchQuotations();
+    if (this.props.autoFetchInterval) {
       setTimeout(this.autoFetchQuotations, this.props.autoFetchInterval);
     }
   }
 
   public fetchQuotations() {
-    this.quotationClient
+    this.props.quotationClient
       .getQuotations(this.props.currencies)
       .then(this.addQuotations);
   }
 
   public addQuotations(newQuotations: IQuotations) {
-    const quotations = {...this.state.quotations};
+    const quotations = { ...this.state.quotations };
 
     Object.keys(newQuotations).forEach(currency => {
-      quotations[currency] = [newQuotations[currency], ...(this.state.quotations[currency] || [])].slice(0,this.props.maxQuotations)
+      quotations[currency] = [
+        newQuotations[currency],
+        ...(this.state.quotations[currency] || [])
+      ].slice(0, this.props.maxQuotations);
     });
-    
-    this.setState({quotations});
+
+    this.setState({ quotations });
   }
 
   public render() {
