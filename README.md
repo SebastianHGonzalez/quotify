@@ -48,4 +48,4 @@ Start Dev Server
 lerna run start
 ```
 
-This will start two web services: quotation-web-service in port 3000, and user-web-service in port 3001
+This will start three web services: quotation-react-client at port 3000, user-web-service at port 3001 and quotation-web-service at port 3002
